@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Credit Card Payment Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f6f6f6;
+            padding: 20px;
+        }
+        .form-box {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+        }
+        .btn {
+            margin-top: 20px;
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🧾 Credit Card Payment Predictor</h1>
+    <div class="form-box">
+        <form method="POST">
+
+            <label for="limit_bal">Limit Balance</label>
+            <input type="number" name="limit_bal" step="0.01" required>
+
+            <label for="gender">Gender</label>
+            <select name="gender" required>
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+            </select>
+
+            
+
+            <label for="marriage">Marriage</label>
+            <select name="marriage" required>
+                <option value="1">Married</option>
+                <option value="2">Single</option>
+                <option value="3">Others</option>
+            </select>
+
+            
+
+            <!-- Payment status for 3 months -->
+            <label for="pay_0">Repayment Status - September (pay_0)</label>
+            <input type="number" name="pay_0" required>
+
+            <label for="pay_2">Repayment Status - August (pay_2)</label>
+            <input type="number" name="pay_2" required>
+
+            <label for="pay_3">Repayment Status - July (pay_3)</label>
+            <input type="number" name="pay_3" required>
+
+            <!-- Bill amount for 3 months -->
+            <label for="bill_amt1">Bill Amount - September</label>
+            <input type="number" name="bill_amt1" required>
+
+            <label for="bill_amt2">Bill Amount - August</label>
+            <input type="number" name="bill_amt2" required>
+
+            <label for="bill_amt3">Bill Amount - July</label>
+            <input type="number" name="bill_amt3" required>
+
+            <!-- Payment amount for 3 months -->
+            <label for="pay_amt1">Amount Paid - September</label>
+            <input type="number" name="pay_amt1" required>
+
+            <label for="pay_amt2">Amount Paid - August</label>
+            <input type="number" name="pay_amt2" required>
+
+            <label for="pay_amt3">Amount Paid - July</label>
+            <input type="number" name="pay_amt3" required>
+
+            <button class="btn" type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+    <div class="result">
+        <strong>Prediction:</strong> {{ prediction }}
+    </div>
+{% endif %}
+
+    </div>
+
+</body>
+</html>
