@@ -1,0 +1,1 @@
+Built a website using Flask that predicts if a customer will make a payment within the given constraint, using Logistic Regression, Random Forest, and XGBoost with feature engineering. Tech stack used is Python, Pandas, Scikit-learn, Flask.
